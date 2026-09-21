@@ -384,6 +384,72 @@
     .review p { font-style: italic; color: var(--text-muted); margin-bottom: 16px; }
     .review-author { font-weight: 600; color: var(--text); }
 
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .edu-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .edu-card:hover { transform: translateY(-6px); background: var(--card-bg-hover); }
+
+    .edu-thumb {
+      display: block;
+      position: relative;
+      height: 200px;
+      background: #f3efe6;
+      border-bottom: 2px solid var(--gold);
+      cursor: zoom-in;
+    }
+
+    .edu-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+
+    .edu-thumb::after {
+      content: "\1F50D";
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(10, 59, 46, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .edu-body { padding: 20px 20px 24px; }
+    .edu-tag { display: inline-block; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .edu-body h3 { font-size: 1.02rem; margin-bottom: 8px; line-height: 1.35; }
+    .edu-body p { font-size: 0.9rem; color: var(--text-muted); }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 20, 16, 0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 24px;
+      cursor: zoom-out;
+    }
+
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 100%; max-height: 92vh; border-radius: 12px; border: 3px solid var(--gold); box-shadow: 0 20px 60px rgba(0,0,0,0.6); }
+    .lightbox-close { position: absolute; top: 18px; right: 24px; font-size: 2rem; color: #fff; background: none; border: none; cursor: pointer; line-height: 1; }
+
     .video-section { }
     .video-wrapper {
       max-width: 900px;
@@ -575,6 +641,7 @@
         <a href="#constellations">Расстановки</a>
         <a href="#reparenting">Добаюкавание</a>
         <a href="#body">Телесная терапия</a>
+        <a href="#education">Образование</a>
         <a href="#reviews">Отзывы</a>
         <a href="blog.html">Блог</a>
         <a href="#contact">Контакты</a>
@@ -804,6 +871,73 @@
       </div>
     </section>
 
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-header">
+          <h2>Образование и сертификаты</h2>
+          <p>Каждое направление, в котором я работаю, подтверждено обучением. Нажмите на документ, чтобы посмотреть его целиком.</p>
+        </div>
+        <div class="edu-grid">
+          <article class="edu-card">
+            <a class="edu-thumb" href="diplomas/diplom-rasstanovki.jpg" data-lightbox aria-label="Открыть диплом"><img src="diplomas/diplom-rasstanovki.jpg" alt="Диплом о профессиональной переподготовке — психолог-консультант, системные расстановки" loading="lazy"></a>
+            <div class="edu-body">
+              <span class="edu-tag">Диплом</span>
+              <h3>Психолог-консультант, системные расстановки</h3>
+              <p>Профессиональная переподготовка · Институт Жизненных Систем и Имплицитного Знания, Москва, 2026</p>
+            </div>
+          </article>
+          <article class="edu-card">
+            <a class="edu-thumb" href="diplomas/irt-dobayukivanie.jpg" data-lightbox aria-label="Открыть удостоверение"><img src="diplomas/irt-dobayukivanie.jpg" alt="Удостоверение о повышении квалификации — Добаюкивание" loading="lazy"></a>
+            <div class="edu-body">
+              <span class="edu-tag">Удостоверение · 132 часа</span>
+              <h3>Авторская практика терапии ранней травмы «Добаюкивание»</h3>
+              <p>Повышение квалификации · Институт терапии ранней травмы, 2024–2025</p>
+            </div>
+          </article>
+          <article class="edu-card">
+            <a class="edu-thumb" href="diplomas/irt-top.jpg" data-lightbox aria-label="Открыть удостоверение"><img src="diplomas/irt-top.jpg" alt="Удостоверение — психотерапия ранней травмы в телесно-ориентированном подходе" loading="lazy"></a>
+            <div class="edu-body">
+              <span class="edu-tag">Удостоверение · 31 час</span>
+              <h3>Психотерапия ранней травмы в телесно-ориентированном подходе</h3>
+              <p>Повышение квалификации · Институт терапии ранней травмы, 2025</p>
+            </div>
+          </article>
+          <article class="edu-card">
+            <a class="edu-thumb" href="diplomas/imaton-top.jpg" data-lightbox aria-label="Открыть удостоверение"><img src="diplomas/imaton-top.jpg" alt="Удостоверение — практика телесно-ориентированной терапии от Райха до Минделла" loading="lazy"></a>
+            <div class="edu-body">
+              <span class="edu-tag">Удостоверение · 40 часов</span>
+              <h3>Практика телесно-ориентированной терапии: от Райха до Минделла</h3>
+              <p>Институт практической психологии «Иматон», 2024</p>
+            </div>
+          </article>
+          <article class="edu-card">
+            <a class="edu-thumb" href="diplomas/ice-coach.jpg" data-lightbox aria-label="Открыть сертификат"><img src="diplomas/ice-coach.jpg" alt="Сертификат ассоциированного коуча-практика ICE" loading="lazy"></a>
+            <div class="edu-body">
+              <span class="edu-tag">Сертификат</span>
+              <h3>Ассоциированный коуч-практик ICE, уровень 2</h3>
+              <p>International Centre of Evolution · ICTA</p>
+            </div>
+          </article>
+          <article class="edu-card">
+            <a class="edu-thumb" href="diplomas/vnutri-kruga.jpg" data-lightbox aria-label="Открыть сертификат"><img src="diplomas/vnutri-kruga.jpg" alt="Сертификат проводника женских практик «Внутри круга»" loading="lazy"></a>
+            <div class="edu-body">
+              <span class="edu-tag">Сертификат</span>
+              <h3>Проводник женских практик «Внутри круга»</h3>
+              <p>Курс для проводников женских практик · Inner Dance</p>
+            </div>
+          </article>
+          <article class="edu-card">
+            <a class="edu-thumb" href="diplomas/pelenanie.jpg" data-lightbox aria-label="Открыть сертификат"><img src="diplomas/pelenanie.jpg" alt="Сертификат — пеленание после родов и переходных событий" loading="lazy"></a>
+            <div class="edu-body">
+              <span class="edu-tag">Сертификат · 40 часов</span>
+              <h3>Пеленание после родов и переходных событий</h3>
+              <p>Очный курс · Nati Sisters, июнь 2025</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="reviews">
       <div class="container">
         <div class="section-header">
@@ -860,6 +994,11 @@
     </div>
   </footer>
 
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр документа">
+    <button class="lightbox-close" aria-label="Закрыть">×</button>
+    <img src="" alt="">
+  </div>
+
   <div class="sticky-cta" id="stickyCta" aria-label="Предложение получить гайд">
     <button class="close-cta" aria-label="Закрыть" onclick="document.getElementById('stickyCta').classList.add('hidden-user');">×</button>
     <p><strong>Бесплатный гайд</strong><br>«5 признаков синдрома хорошей девочки»</p>
@@ -875,6 +1014,24 @@
           nav.classList.toggle('open');
         });
       }
+    })();
+
+    (function() {
+      const box = document.getElementById('lightbox');
+      if (!box) return;
+      const img = box.querySelector('img');
+      document.querySelectorAll('[data-lightbox]').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          img.src = a.getAttribute('href');
+          img.alt = a.querySelector('img') ? a.querySelector('img').alt : '';
+          box.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      function close() { box.classList.remove('open'); img.src = ''; document.body.style.overflow = ''; }
+      box.addEventListener('click', close);
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close(); });
     })();
 
     // === Аналитика: Yandex.Metrika инициализирована выше; GA — при появлении ID ===
